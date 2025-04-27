@@ -1,0 +1,188 @@
+[
+  {
+    "name": "Men's Cotton T-Shirt",
+    "price": 19.99,
+    "image": "/images/tshirt.jpg",
+    "category": "Clothing"
+  },
+  {
+    "name": "Women's Denim Jacket",
+    "price": 49.99,
+    "image": "/images/jacket1.jpg",
+    "category": "Clothing"
+  },
+  {
+    "name": "Running Shoes",
+    "price": 59.99,
+    "image": "/images/shoes1.jpg",
+    "category": "Footwear"
+  },
+  {
+    "name": "Leather Wallet",
+    "price": 24.99,
+    "image": "/images/wallet1.jpg",
+    "category": "Accessories"
+  },
+  {
+    "name": "Bluetooth Headphones",
+    "price": 79.99,
+    "image": "/images/headphones1.jpg",
+    "category": "Electronics"
+  },
+  {
+    "name": "Organic Almonds - 500g",
+    "price": 9.99,
+    "image": "/images/almonds.jpg",
+    "category": "Grocery"
+  },
+  {
+    "name": "Men's Hoodie",
+    "price": 29.99,
+    "image": "/images/hoodie1.jpg",
+    "category": "Clothing"
+  },
+  {
+    "name": "Women's Sneakers",
+    "price": 45.99,
+    "image": "/images/sneakers1.jpg",
+    "category": "Footwear"
+  },
+  {
+    "name": "Sunglasses - UV Protected",
+    "price": 15.99,
+    "image": "/images/sunglasses1.jpg",
+    "category": "Accessories"
+  },
+  {
+    "name": "USB-C Fast Charger",
+    "price": 14.99,
+    "image": "/images/charger1.jpg",
+    "category": "Electronics"
+  },
+  {
+    "name": "Brown Rice - 1kg",
+    "price": 3.49,
+    "image": "/images/rice1.jpg",
+    "category": "Grocery"
+  },
+  {
+    "name": "Graphic Tee",
+    "price": 17.99,
+    "image": "/images/tshirt2.jpg",
+    "category": "Clothing"
+  },
+  {
+    "name": "Sports Sandals",
+    "price": 35.00,
+    "image": "/images/sandals.jpg",
+    "category": "Footwear"
+  },
+  {
+    "name": "Analog Watch",
+    "price": 39.99,
+    "image": "/images/watch.jpg",
+    "category": "Accessories"
+  },
+  {
+    "name": "Wireless Mouse",
+    "price": 12.99,
+    "image": "/images/mouse.jpg",
+    "category": "Electronics"
+  },
+  {
+    "name": "Olive Oil - 1L",
+    "price": 6.99,
+    "image": "/images/oliveoil.jpg",
+    "category": "Grocery"
+  },
+  {
+    "name": "Men's Polo Shirt",
+    "price": 22.50,
+    "image": "/images/polo.jpg",
+    "category": "Clothing"
+  },
+  {
+    "name": "Women's Boots",
+    "price": 69.99,
+    "image": "/images/boots.jpg",
+    "category": "Footwear"
+  },
+  {
+    "name": "Leather Belt",
+    "price": 18.99,
+    "image": "/images/belt.jpg",
+    "category": "Accessories"
+  },
+  {
+    "name": "Power Bank 10000mAh",
+    "price": 19.99,
+    "image": "/images/powerbank.jpg",
+    "category": "Electronics"
+  },
+  {
+    "name": "Whole Wheat Bread",
+    "price": 2.49,
+    "image": "/images/bread.jpg",
+    "category": "Grocery"
+  },
+  {
+    "name": "Printed Shirt",
+    "price": 27.99,
+    "image": "/images/shirt.jpg",
+    "category": "Clothing"
+  },
+  {
+    "name": "Kids' Sneakers",
+    "price": 29.99,
+    "image": "/images/kids-shoes.jpg",
+    "category": "Footwear"
+  },
+  {
+    "name": "Woolen Scarf",
+    "price": 12.99,
+    "image": "/images/scarf.jpg",
+    "category": "Accessories"
+  },
+  {
+    "name": "Smartphone Stand",
+    "price": 8.99,
+    "image": "/images/stand.jpg",
+    "category": "Electronics"
+  },
+  {
+    "name": "Green Tea - 20 bags",
+    "price": 3.99,
+    "image": "/images/greentea.jpg",
+    "category": "Grocery"
+  },
+  {
+    "name": "Casual Jeans",
+    "price": 34.99,
+    "image": "/images/jeans.jpg",
+    "category": "Clothing"
+  },
+  {
+    "name": "Flip Flops",
+    "price": 14.99,
+    "image": "/images/flipflops.jpg",
+    "category": "Footwear"
+  },
+  {
+    "name": "Keychain Set",
+    "price": 4.99,
+    "image": "/images/keychain.jpg",
+    "category": "Accessories"
+  },
+  {
+    "name": "Wireless Earbuds",
+    "price": 49.99,
+    "image": "/images/earbuds.jpg",
+    "category": "Electronics"
+  },
+  {
+    "name": "Peanut Butter - 500g",
+    "price": 5.49,
+    "image": "/images/peanutbutter.jpg",
+    "category": "Grocery"
+  }
+]
