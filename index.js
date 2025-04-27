@@ -4,7 +4,17 @@ require("dotenv").config();
 
 const app = express();
 
-app.use(cors());
+// CORS configuration
+const allowedOrigins = [
+  "http://localhost:5173", // for local dev
+  "https://tren-dify-fd.vercel.app", // your frontend deployed URL
+];
+
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true,
+}));
+
 app.use(express.json());
 
 // Importing route files
@@ -20,6 +30,11 @@ app.use("/api", checkoutRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api/categories", categoryRoutes);
 app.use("/api/orders", orderRoutes);
+
+// Test route (optional, for health check)
+app.get("/", (req, res) => {
+  res.send("Backend Server is Running!");
+});
 
 // IMPORTANT: Use process.env.PORT
 const PORT = process.env.PORT || 5000;
