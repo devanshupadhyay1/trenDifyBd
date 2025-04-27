@@ -4,17 +4,7 @@ require("dotenv").config();
 
 const app = express();
 
-// CORS configuration
-const allowedOrigins = [
-  "http://localhost:5173", // for local dev
-  "https://tren-dify-fd.vercel.app", // your frontend deployed URL
-];
-
-app.use(cors({
-  origin: allowedOrigins,
-  credentials: true,
-}));
-
+app.use(cors());
 app.use(express.json());
 
 // Importing route files
