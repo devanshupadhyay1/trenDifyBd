@@ -2,9 +2,7 @@ const express = require("express");
 const router = express.Router();
 const fs = require("fs");
 const path = require("path");
-const { PrismaClient } = require("@prisma/client");
-
-const prisma = new PrismaClient();
+const { prisma } = require("../lib/prisma"); // using centralized prisma client
 
 // GET all products
 router.get("/", async (req, res) => {
@@ -14,6 +12,7 @@ router.get("/", async (req, res) => {
     });
     res.json(products);
   } catch (error) {
+    console.error("Error fetching products:", error);
     res.status(500).json({ error: "Failed to fetch products" });
   }
 });
@@ -23,10 +22,16 @@ router.post("/", async (req, res) => {
   const { name, price, image, categoryId } = req.body;
   try {
     const newProduct = await prisma.product.create({
-      data: { name, price: parseFloat(price), image, categoryId: Number(categoryId) },
+      data: {
+        name,
+        price: parseFloat(price),
+        image,
+        categoryId: Number(categoryId),
+      },
     });
     res.status(201).json(newProduct);
   } catch (error) {
+    console.error("Error adding product:", error);
     res.status(500).json({ error: "Failed to add product" });
   }
 });
@@ -38,10 +43,16 @@ router.put("/:id", async (req, res) => {
   try {
     const updatedProduct = await prisma.product.update({
       where: { id: Number(id) },
-      data: { name, price: parseFloat(price), image, categoryId: Number(categoryId) },
+      data: {
+        name,
+        price: parseFloat(price),
+        image,
+        categoryId: Number(categoryId),
+      },
     });
     res.json(updatedProduct);
   } catch (error) {
+    console.error("Error updating product:", error);
     res.status(500).json({ error: "Failed to update product" });
   }
 });
@@ -55,6 +66,7 @@ router.delete("/:id", async (req, res) => {
     });
     res.json({ message: "Product deleted" });
   } catch (error) {
+    console.error("Error deleting product:", error);
     res.status(500).json({ error: "Failed to delete product" });
   }
 });
@@ -62,7 +74,7 @@ router.delete("/:id", async (req, res) => {
 // BATCH UPLOAD from products.json
 router.post("/batch-upload", async (req, res) => {
   try {
-    const filePath = path.join(__dirname, "../data/products.json");
+    const filePath = path.join(process.cwd(), "data/products.json");
     const data = fs.readFileSync(filePath, "utf8");
     const products = JSON.parse(data);
 
@@ -83,9 +95,9 @@ router.post("/batch-upload", async (req, res) => {
       }
     }
 
-    res.status(201).json({ message: "Products uploaded successfully" });
+    res.status(201).json({ message: "Products uploaded successfully!" });
   } catch (error) {
-    console.error(error);
+    console.error("Batch upload error:", error);
     res.status(500).json({ error: "Batch upload failed" });
   }
 });
