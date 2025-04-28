@@ -18,11 +18,11 @@ app.use(cors({
 app.use(express.json());
 
 // Importing route files
-const adminRoutes = require("./routes/admin");
-const checkoutRoutes = require("./routes/checkout");
-const productRoutes = require("./routes/product");
-const categoryRoutes = require("./routes/categories");
-const orderRoutes = require("./routes/orders");
+const adminRoutes = require("./api/admin");
+const checkoutRoutes = require("./api/checkout");
+const productRoutes = require("./api/product");
+const categoryRoutes = require("./api/categories");
+const orderRoutes = require("./api/orders");
 
 // Route usage
 app.use("/api/admin", adminRoutes);
