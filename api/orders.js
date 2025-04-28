@@ -1,51 +1,44 @@
 const express = require("express");
 const router = express.Router();
-const { prisma } = require("../lib/prisma");
+const prisma = require("../lib/prisma");
 
 // Place a new order
 router.post("/", async (req, res) => {
-  const { email, total, items } = req.body;
-  
   try {
+    const { email, total, items } = req.body;
+
     const order = await prisma.order.create({
       data: {
         email,
-        total: parseFloat(total),
+        total,
         items: {
           create: items.map((item) => ({
-            productId: Number(item.productId),
-            quantity: Number(item.quantity),
+            productId: item.productId,
+            quantity: item.quantity,
           })),
         },
       },
       include: { items: true },
     });
 
-    res.status(201).json(order);
-  } catch (error) {
-    console.error("Failed to place order:", error);
+    res.json(order);
+  } catch (err) {
     res.status(500).json({ error: "Failed to place order" });
   }
 });
 
-// Get all orders (admin view)
+// Get all orders (admin)
 router.get("/", async (req, res) => {
   try {
     const orders = await prisma.order.findMany({
       include: {
         items: {
-          include: {
-            product: true,
-          },
+          include: { product: true },
         },
-      },
-      orderBy: {
-        createdAt: "desc",
       },
     });
     res.json(orders);
-  } catch (error) {
-    console.error("Failed to fetch orders:", error);
+  } catch (err) {
     res.status(500).json({ error: "Failed to fetch orders" });
   }
 });

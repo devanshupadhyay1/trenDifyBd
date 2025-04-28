@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
 
+
 router.post("/login", (req, res) => {
-  // Dummy login logic
   const { email, password } = req.body;
 
   if (email === "admin@example.com" && password === "admin123") {

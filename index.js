@@ -6,8 +6,8 @@ const app = express();
 
 // CORS configuration
 const allowedOrigins = [
-  "http://localhost:5173", // Local frontend
-  "https://tren-dify-fd.vercel.app", // Your Vercel frontend
+  "http://localhost:5173",
+  "https://tren-dify-fd.vercel.app",
 ];
 
 app.use(cors({
@@ -31,10 +31,15 @@ app.use("/api/products", productRoutes);
 app.use("/api/categories", categoryRoutes);
 app.use("/api/orders", orderRoutes);
 
-// Health Check route
+// Health Check
 app.get("/", (req, res) => {
   res.send("Backend is running successfully!");
 });
 
-// Export the app for Vercel
+// Start server if not in serverless mode
+if (process.env.NODE_ENV !== "production") {
+  const PORT = process.env.PORT || 5000;
+  app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+}
+
 module.exports = app;
