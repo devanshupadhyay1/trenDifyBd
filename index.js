@@ -7,7 +7,7 @@ const app = express();
 // CORS configuration
 app.use(cors({
   origin: [
-    "http://localhost:5173", // local frontend
+    "http://localhost:5173", // local frontend 
     "https://tren-dify-fd.vercel.app" // deployed frontend
   ],
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
