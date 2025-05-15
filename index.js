@@ -1,8 +1,10 @@
 const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
+const { PrismaClient } = require("@prisma/client");
 
 const app = express();
+const prisma = new PrismaClient();
 
 // CORS configuration
 const allowedOrigins = [
@@ -16,6 +18,12 @@ app.use(cors({
 }));
 
 app.use(express.json());
+
+// Attach Prisma to request (optional but useful in routes)
+app.use((req, res, next) => {
+  req.prisma = prisma;
+  next();
+});
 
 // Importing route files
 const adminRoutes = require("./api/admin");
@@ -36,7 +44,13 @@ app.get("/", (req, res) => {
   res.send("Backend is running successfully!");
 });
 
-// Start server if not in serverless mode
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error("Unhandled error:", err);
+  res.status(500).json({ error: "Something went wrong" });
+});
+
+// Start server
 if (process.env.NODE_ENV !== "production") {
   const PORT = process.env.PORT || 5000;
   app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
