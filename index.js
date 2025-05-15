@@ -20,14 +20,14 @@ app.use(express.json());
 // Importing route files
 const adminRoutes = require("./api/admin");
 const checkoutRoutes = require("./api/checkout");
-const productRoutes = require("./api/product");
+const productRoutes = require("./api/product.tsx");
 const categoryRoutes = require("./api/categories");
 const orderRoutes = require("./api/orders");
 
 // Route usage
 app.use("/api/admin", adminRoutes);
 app.use("/api", checkoutRoutes);
-app.use("/api/products", productRoutes);
+app.use("/api/products.tsx", productRoutes);
 app.use("/api/categories", categoryRoutes);
 app.use("/api/orders", orderRoutes);
 
